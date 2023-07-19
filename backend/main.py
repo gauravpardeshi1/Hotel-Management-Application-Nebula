@@ -1,12 +1,3 @@
-# from flask import Flask, request, jsonify
-# from flask_pymongo import MongoClient
-
-# app = Flask(__name__)
-# # app.config['MONGO_URI'] = 'mongodb+srv://gaurav:pardeshi@cluster0.naivyl2.mongodb.net/?retryWrites=true&w=majority'
-# # mongo = MongoClient(app)
-# client = MongoClient("mongodb+srv://faizanmd:faizan123@cluster0.defifv6.mongodb.net/mohsindb?retryWrites=true&w=majority")
-# db = client["mohsindb"]
-# Host and Property Management
 
 from flask import Flask
 from pymongo import MongoClient
@@ -37,6 +28,7 @@ def add_user(user_data):
     
 @app.route("/")
 def home():
+    
  return "Welcome to Python Projects"
 
 @app.route('/hosts', methods=['GET'])
@@ -67,33 +59,38 @@ def create_host():
     return jsonify({'message': 'Host created successfully', 'id': str(inserted_host.inserted_id)})
 
 
-# # Guest Management
-# @app.route('/guests', methods=['GET'])
-# def get_guests():
-#     guests = mongo.db.guests.find()
-#     guest_list = []
-#     for guest in guests:
-#         guest_list.append({
-#             'id': str(guest['_id']),
-#             'name': guest['name'],
-#             'email': guest['email']
-#         })
-#     return jsonify(guest_list)
+# Guest Management
+@app.route('/guests', methods=['GET'])
+def get_guests():
+    guests = db.guests.find()
+    guest_list = []
+    for guest in guests:
+        guest_list.append({
+            'id': str(guest['_id']),
+            'name': guest['name'],
+            'email': guest['email'],
+            'gender':guest['gender'],          
+        })
+    return jsonify(guest_list)
 
-# @app.route('/guests', methods=['POST'])
-# def create_guest():
-#     data = request.get_json()
-#     name = data.get('name')
-#     email = data.get('email')
+@app.route('/guests', methods=['POST'])
+def create_guest():
+    data = request.get_json()
+    name = data.get('name')
+    email = data.get('email')
+    gender= data.get('gender')
+    date_of_birth= data.get('date_of_birth')
 
-#     guest = {
-#         'name': name,
-#         'email': email
-#     }
+    guest = {
+        'name': name,
+        'email': email,
+        'gender':gender,
+        'date_of_birth':date_of_birth
+    }
 
-#     inserted_guest = mongo.db.guests.insert_one(guest)
+    inserted_guest = db.guests.insert_one(guest)
 
-#     return jsonify({'message': 'Guest created successfully', 'id': str(inserted_guest.inserted_id)})
+    return jsonify({'message': 'Guest created successfully', 'id': str(inserted_guest.inserted_id)})
 
 
 # # Booking Management
