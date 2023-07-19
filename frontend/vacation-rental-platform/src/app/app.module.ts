@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { SingledataComponent } from './singledata/singledata.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SingledataComponent } from './singledata/singledata.component';
     SignupComponent,
     SigninComponent,
     
-    SingledataComponent
+    SingledataComponent,
+         BookingComponent
   ],
   
   imports: [
