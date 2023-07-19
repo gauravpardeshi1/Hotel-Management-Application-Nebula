@@ -87,9 +87,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/flowbite/css/flowbite.css",
+               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+             
+
+            ]
           }
         }
       }
