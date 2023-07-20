@@ -69,7 +69,7 @@ def create_host():
 
 
 # Guest Management
-@app.route('/guests', methods=['GET'])
+@app.route('/booking', methods=['GET'])
 def get_guests():
     guests = db.guests.find()
     guest_list = []
@@ -77,24 +77,33 @@ def get_guests():
         guest_list.append({
             'id': str(guest['_id']),
             'name': guest['name'],
-            'email': guest['email'],
-            'gender':guest['gender'],          
+            'gender':guest['gender'],
+            'date':guest['date'],
+            'hotel_name':guest['hotel_name'],
+            'hotel_price':guest['hotel_price'],
+            'hotel_location':guest['hotel_location']    
+           
         })
     return jsonify(guest_list)
 
-@app.route('/guests', methods=['POST'])
+@app.route('/booking', methods=['POST'])
 def create_guest():
     data = request.get_json()
+
     name = data.get('name')
-    email = data.get('email')
     gender= data.get('gender')
-    date_of_birth= data.get('date_of_birth')
+    date= data.get('date')
+    hotel_name=data.get('hotel_name')
+    hotel_price=data.get('hotel_price')
+    hotel_location=data.get('hotel_location')
 
     guest = {
         'name': name,
-        'email': email,
         'gender':gender,
-        'date_of_birth':date_of_birth
+        'date':date,
+        'hotel_name':hotel_name,
+        'hotel_price':hotel_price,
+        'hotel_location':hotel_location
     }
 
     inserted_guest = db.guests.insert_one(guest)

@@ -1,9 +1,9 @@
 
 
 
-<div id="main_container" class="w-11/12 mt-10 p-5 mx-auto  grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2" *ngIf="products.length > 0">
+<div id="main_container" class="w-11/12 mt-10 p-5 mx-auto  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2" *ngIf="products.length > 0">
    
-    <div *ngFor="let product of products" class="w-64 mx-auto max-w-xs h-82  mt-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div *ngFor="let product of products" class="w-64 mx-auto max-w-xs h-82  mt-0 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a [routerLink]="['/hotels', product.id]">
             <img class="p-5 pb-1 rounded-t-lg" [src]="product.homeMainPic" alt="product image" />
         </a>
