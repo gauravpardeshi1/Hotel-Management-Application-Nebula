@@ -2,12 +2,14 @@
 from flask import Flask
 from pymongo import MongoClient
 from flask import Flask, request
+from flask_cors import CORS
 from flask import jsonify
 
 from bson.objectid import ObjectId
 
         
 app = Flask(__name__)
+CORS(app)
 client = MongoClient("mongodb+srv://gaurav:pardeshi@cluster0.naivyl2.mongodb.net/ga201?retryWrites=true&w=majority")
 db = client["ga201"]
 class User: # also this will be diffrent according to the project
@@ -39,7 +41,9 @@ def get_hosts():
         host_list.append({
             'id': str(host['_id']),
             'name': host['name'],
-            'email': host['email']
+            'location': host['location'],
+            'property': host['property'],
+            'active': host['active']
         })
     return jsonify(host_list)
 
@@ -47,11 +51,16 @@ def get_hosts():
 def create_host():
     data = request.get_json()
     name = data.get('name')
-    email = data.get('email')
+    location=data.get('location')
+    property=data.get('property')
+    active=data.get('active')
 
     host = {
         'name': name,
-        'email': email
+        'location':location,
+        'property':property,
+        'active':active
+        
     }
 
     inserted_host = db.hosts.insert_one(host)

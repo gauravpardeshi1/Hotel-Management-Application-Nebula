@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { SingledataComponent } from './singledata/singledata.component';
 import { BookingComponent } from './booking/booking.component';
+import { FormsModule } from '@angular/forms'; // Import FormsModule here
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BookingComponent } from './booking/booking.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

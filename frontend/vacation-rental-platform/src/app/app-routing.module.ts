@@ -7,10 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SingledataComponent } from './singledata/singledata.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
  { path: '', component: HomeComponent },
  { path: 'hosts', component: HostsComponent },
+ { path: 'booking', component: BookingComponent },
   { path: 'properties', component: PropertiesComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
