@@ -110,6 +110,16 @@ def create_guest():
 
     return jsonify({'message': 'Guest created successfully', 'id': str(inserted_guest.inserted_id)})
 
+@app.route('/booking/<string:document_id>', methods=['DELETE'])
+def delete_document(document_id):
+    try:
+        result = db.guests.delete_one({'_id': ObjectId(document_id)})
+        if result.deleted_count > 0:
+            return jsonify({'message': 'Document deleted successfully.'}), 200
+        else:
+            return jsonify({'message': 'Document not found.'}), 404
+    except Exception as e:
+        return jsonify({'message': f'Error: {str(e)}'}), 500
 
 # # Booking Management
 # @app.route('/bookings', methods=['POST'])

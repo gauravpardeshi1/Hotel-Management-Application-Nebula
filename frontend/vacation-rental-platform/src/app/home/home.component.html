@@ -1,11 +1,36 @@
 
+<div class="w-80  mx-auto   md:w-4/12  md:ml-24    mt-4  flex justify-center gap-2 ">
+    <select id="price" [(ngModel)]="sortOrder" (ngModelChange)="sortData()" class="w-2/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <option value="d">Sort By Price</option>
+      <option value="asc">Low To High</option>
+      <option value="desc">High To Low</option>
+     
+    </select>
+    <select  id="countries"  class="w-2/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option selected value=' '>Filter By Location</option>
+      
+        <option value="US">United States</option>
+        <option value="russia">Russia</option>
+        <option value="india">India</option>
+        <option value="france">france</option>
+        <option value="london">London</option>
+        <option value="newyork">New York</option>
+        <option value="spain">Spain</option>
+        <option value="usa us">USA US</option>
+        <option value="italy">Italy</option>
+        <option value="australia">Australia</option>
+        <option value="brazil">Brazil</option>
+        <option value="canada">Canada</option>
+      </select>
+</div>
 
 
-<div id="main_container" class="w-11/12 mt-10 p-5 mx-auto  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2" *ngIf="products.length > 0">
+
+<div id="main_container" class="md:w-11/12 mt-5 md:p-5 mx-auto  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2" *ngIf="products.length > 0 ">
    
-    <div *ngFor="let product of products" class="w-64 mx-auto max-w-xs h-82  mt-0 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div *ngFor="let product of products"  class="w-64 transition-all transform-gpu hover:scale-105 hover:duration-800  mx-auto max-w-xs h-82  mt-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a [routerLink]="['/hotels', product.id]">
-            <img class="p-5 pb-1 rounded-t-lg" [src]="product.homeMainPic" alt="product image" />
+            <img class="p-5  pb-1 rounded-t-lg" [src]="product.homeMainPic" alt="product image" />
         </a>
         <div class="px-6 pb-6 h-full">
             <a href="#">
@@ -43,7 +68,7 @@
              
             <div class="flex  justify-between ">
                 <span class="text-xl font-bold text-gray-900 dark:text-white">${{ product.price }}</span>
-                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-1.5   text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Book Now</a>
+                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-1.5   text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-green-600">Book Now</a>
             </div>
         
         </div>

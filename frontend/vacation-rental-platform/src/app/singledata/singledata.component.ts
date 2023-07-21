@@ -1,6 +1,7 @@
 import { Component,OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-singledata',
@@ -19,6 +20,8 @@ export class SingledataComponent implements OnInit {
       this.fetchDataItem(id);
     });
   }
+  
+
 
   fetchDataItem(id: string) {
     const url = `${this.api}/${id}`;
@@ -27,4 +30,6 @@ export class SingledataComponent implements OnInit {
       this.dataItem = response;
     });
   }
+
+  
 }
