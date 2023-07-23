@@ -1,17 +1,19 @@
 
+
 <div class="w-80  mx-auto   md:w-4/12  md:ml-24    mt-4  flex justify-center gap-2 ">
-    <select id="price" [(ngModel)]="sortOrder" (ngModelChange)="sortData()" class="w-2/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-      <option value="d">Sort By Price</option>
-      <option value="asc">Low To High</option>
-      <option value="desc">High To Low</option>
+    <select id="price" [(ngModel)]="sortDirection" (ngModelChange)="sortData()" class="w-2/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option [ngValue]="null" disabled selected>Sort by Price</option>
+        <option value="asc">Low To High</option>
+        <option value="desc">High To Low</option>
      
     </select>
-    <select  id="countries"  class="w-2/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        <option selected value=' '>Filter By Location</option>
+    <select [(ngModel)]="selectedLocation" (ngModelChange)="filterData()" class="w-2/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option [ngValue]="null" disabled selected>Filter by Location</option>
       
         <option value="US">United States</option>
         <option value="russia">Russia</option>
         <option value="india">India</option>
+        <option value="europe">Europe</option>
         <option value="france">france</option>
         <option value="london">London</option>
         <option value="newyork">New York</option>
@@ -75,19 +77,25 @@
 </div>
 
 
-<div class="w-full mt-10  flex justify-between flex-col items-center">
+ <div class="w-full mt-10  flex justify-between flex-col items-center">
   
    
     <div class="inline-flex mt-2 xs:mt-0">
-        <button (click)="decrement()" [disabled]="isDecrementDisabled()" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        <button (click)="decrement()"  class="hover:cursor-pointer flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
             Prev
         </button>
         <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
             {{ page }}
         </button>
-        <button (click)="increment()" class=" flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+         <button (click)="increment()" class="hover:cursor-pointer flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
             Next
-        </button>
-    </div>
-  </div>
+        </button> 
+    </div> 
+   </div> 
+  
+
+
+  
+  
+
   

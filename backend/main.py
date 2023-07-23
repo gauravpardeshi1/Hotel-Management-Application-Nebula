@@ -68,6 +68,41 @@ def create_host():
     return jsonify({'message': 'Host created successfully', 'id': str(inserted_host.inserted_id)})
 
 
+@app.route('/users', methods=['GET'])
+def get_users():
+    users = db.users.find()
+    user_list = []
+    for user in users:
+        user_list.append({
+            'id': str(user['_id']),
+            'name': user['name'],
+            'email': user['email'],
+            'password': user['password']
+           
+        })
+    return jsonify(user_list)
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    name = data.get('name')
+    email=data.get('email')
+    password=data.get('password')
+   
+
+    user = {
+        'name': name,
+        'email':email,
+        'password':password,
+       
+        
+    }
+
+    inserted_user = db.users.insert_one(user)
+
+    return jsonify({'message': 'Sign Up successfully', 'id': str(inserted_user.inserted_id)})
+
+
 # Guest Management
 @app.route('/booking', methods=['GET'])
 def get_guests():

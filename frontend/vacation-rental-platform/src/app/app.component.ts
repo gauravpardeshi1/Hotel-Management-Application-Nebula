@@ -9,7 +9,27 @@ import { initFlowbite } from 'flowbite';
 })
 export class AppComponent {
   title = 'vacation-rental-platform';
-
+  showLi = false;
+  showbut=false;
+  user: string | null;
+  constructor() {
+    // Retrieve value from local storage based on the key
+    this.user = localStorage.getItem('user');
+    //console.log('user',this.user)
+    if(this.user=='true'){
+      this.showbut=true;
+    }else{
+this.showLi=true;
+    }
+  }
+   
+  deleteKey() {
+    const keyToDelete = 'user'; // Replace 'your-key' with the key you want to delete
+    localStorage.removeItem(keyToDelete);
+    alert('Are you Logout from here..!!')
+    window.location.reload();
+  }
+ 
   ngOnInit(): void {
     initFlowbite();
   }

@@ -20,8 +20,20 @@ export class SingledataComponent implements OnInit {
       this.fetchDataItem(id);
     });
   }
-  
+  modalOpen = false;
 
+  toggleModal(): void {
+    this.modalOpen = !this.modalOpen;
+  }
+  isModalOpen: boolean = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
 
   fetchDataItem(id: string) {
     const url = `${this.api}/${id}`;

@@ -12,7 +12,8 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { SingledataComponent } from './singledata/singledata.component';
 import { BookingComponent } from './booking/booking.component';
-import { FormsModule } from '@angular/forms'; // Import FormsModule here
+import { FormsModule } from '@angular/forms';
+import { PaymentComponent } from './payment/payment.component'; // Import FormsModule here
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule here
     SigninComponent,
     
     SingledataComponent,
-         BookingComponent
+         BookingComponent,
+         PaymentComponent
   ],
   
   imports: [

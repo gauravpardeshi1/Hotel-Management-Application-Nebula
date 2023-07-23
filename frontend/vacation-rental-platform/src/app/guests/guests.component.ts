@@ -1,6 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-guests',
@@ -11,7 +12,7 @@ export class GuestsComponent implements OnInit {
   dataItem: any;
   api = 'https://hotelsapis.onrender.com/placesStore';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient,private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -54,7 +55,7 @@ export class GuestsComponent implements OnInit {
     this.http.post(apiUrl, formdata).subscribe(
       (response) => {
         console.log('API Response:', response);
-        alert('Booking Successfully !!')
+        this.router.navigate(['/payment']);
         // Handle the API response here
       },
       (error) => {
@@ -64,4 +65,5 @@ export class GuestsComponent implements OnInit {
     );
     
   }
+  
 }

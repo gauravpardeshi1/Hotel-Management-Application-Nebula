@@ -29,14 +29,18 @@
         <li>
           <a routerLink="/hosts" class="block py-2 pl-3 pr-4  bg-pink-600 text-white rounded   md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Hosts</a>
         </li>
-        <li>
-          <a routerLink="/guest" class="block py-2 pl-3 pr-4 text-white rounded bg-pink-600  md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Properties</a>
-        </li>
+        <!-- <li>
+          <a routerLink="/properties" class="block py-2 pl-3 pr-4 text-white rounded bg-pink-600  md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Properties</a>
+        </li> -->
         <li>
           <a routerLink="/booking"  class="block py-2 pl-3 pr-4 text-white rounded bg-pink-600  md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Booking</a>
         </li>
-        <li>
+       
+        <li *ngIf="showLi">
           <a routerLink="/signin" class="block py-2 pl-3 pr-4 text-white rounded bg-pink-600  md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Sign In</a>
+        </li>
+        <li *ngIf="showbut" (click)="deleteKey()">
+          <a  class="block hover:cursor-pointer py-2 pl-3 pr-4 text-white rounded bg-pink-600  md:border-0 md:hover:text-blue-600  md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
         </li>
       </ul>
     </div>

@@ -12,7 +12,20 @@ interface products {
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent {
+  modalOpen = false;
 
+  toggleModal(): void {
+    this.modalOpen = !this.modalOpen;
+  }
+  isModalOpen: boolean = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
   products: any[] = [];
   constructor(private http: HttpClient) {}
   ngOnInit() {
@@ -26,10 +39,10 @@ export class BookingComponent {
       });
   }
 
-  deleteItem(_itemId: number) {
+  deleteItem(itemId: number) {
     // console.log('i',itemId)
     // const url = `${this.baseUrl}/items/${itemId}`; // Replace "items" with the appropriate endpoint for your delete request
-    const url=`http://127.0.0.1:5000/booking/${_itemId}`
+    const url=`http://127.0.0.1:5000/booking/${itemId}`
     this.http.delete(url).subscribe(
       (response) => {
         console.log('Item deleted successfully:', response);
@@ -41,6 +54,7 @@ export class BookingComponent {
         // Handle error cases
       }
     );
+    
     
    
   }
