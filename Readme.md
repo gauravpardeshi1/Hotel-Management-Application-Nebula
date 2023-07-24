@@ -60,6 +60,6 @@ This is the Booking Dashboard Page:-
 
 
 
-This is the Payment Page:-
+This is the Guest Page:-
 
 ![Screenshot (1821)](https://github.com/gauravpardeshi1/GA201_PROJECT/assets/112778106/66cba075-31c5-458f-b689-20100e609ecc)
