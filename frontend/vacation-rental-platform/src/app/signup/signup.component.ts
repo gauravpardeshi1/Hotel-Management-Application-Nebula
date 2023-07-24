@@ -26,7 +26,7 @@ export class SignupComponent {
 
     }
     console.log('data',formdata);
-    const apiUrl = 'http://127.0.0.1:5000/users';
+    const apiUrl = 'https://nebula-project.onrender.com/users';
 
     this.http.post(apiUrl, formdata).subscribe(
       (response) => {

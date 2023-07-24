@@ -26,7 +26,7 @@ export class HostsComponent {
 
     }
     console.log('data',formdata);
-    const apiUrl = 'http://127.0.0.1:5000/hosts';
+    const apiUrl = 'https://nebula-project.onrender.com//hosts';
 
     this.http.post(apiUrl, formdata).subscribe(
       (response) => {

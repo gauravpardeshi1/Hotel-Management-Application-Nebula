@@ -50,7 +50,7 @@ export class GuestsComponent implements OnInit {
     }
    // console.log('data',formdata);
     
-    const apiUrl = 'http://127.0.0.1:5000/booking';
+    const apiUrl = 'https://nebula-project.onrender.com/booking';
 
     this.http.post(apiUrl, formdata).subscribe(
       (response) => {

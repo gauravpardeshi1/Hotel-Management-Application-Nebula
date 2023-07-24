@@ -27,7 +27,7 @@ export class SigninComponent {
   
     this.http
       .get<any[]>(
-        `http://127.0.0.1:5000/users`
+        `https://nebula-project.onrender.com/users`
       )
       .subscribe((response) => {
         this.products = response.reverse();
@@ -44,7 +44,7 @@ export class SigninComponent {
            
          } else {
            // Login failed
-           console.log('Invalid email or password');
+           alert('Invalid email or password');
          }
       });
     
